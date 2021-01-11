@@ -11,7 +11,7 @@ Parse *STL* files with Node.js and get volume, weight, the bounding box, and the
 const NodeStl = require("node-stl");
 
 var stl = new NodeStl(__dirname + '/myCool.stl', {density: 1.04});
-console.log(stl.volume + '(cm^3)');     // 21mm^3
+console.log(stl.volume + '(mm^3)');     // 21mm^3
 console.log(stl.weight + '(g)');       //  1g
 console.log(stl.boundingBox,'(mm)');  // [60,45,50] (mm)
 console.log(stl.area,'(mm^2)');          // 91.26 (mm^2)
