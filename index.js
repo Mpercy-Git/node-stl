@@ -5,7 +5,7 @@ const Vector3 = require("./lib/vector3");
  */
 class STLMeasures {
   /**
-   * @param {number} density - density of material in cm^3
+   * @param {number} density - density of material in mm^3
    */
   constructor(density) {
     this.density = density;
@@ -86,14 +86,14 @@ class STLMeasures {
    * @returns {{volume: number, weight: number, boundingBox: number[], area: number, centerOfMass: number[]}}
    */
   finalize() {
-    const volumeTotal = Math.abs(this.volume) / 1000;
+    const volumeTotal = Math.abs(this.volume);
 
     this.xCenter /= this.volume;
     this.yCenter /= this.volume;
     this.zCenter /= this.volume;
 
     return {
-      volume: volumeTotal, // cubic cm
+      volume: volumeTotal, // cubic mm
       weight: volumeTotal * this.density, // gm
       boundingBox: [
         this.maxx - this.minx,
@@ -110,7 +110,7 @@ class STLMeasures {
  * NodeStl
  * =======
  * > const stl = NodeStl(__dirname + '/myCool.stl');
- * > console.log(stl.volume + 'cm^3');
+ * > console.log(stl.volume + 'mm^3');
  * > console.log(stl.weight + 'gm');
  */
 class NodeStl {
